@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcPractice2";
+
+package weather;
+
+service Weather {
+  rpc GetWeatherStream (WeatherRequest) returns (stream WeatherData);
+}
+
+message WeatherRequest {
+}
+
+message WeatherData {
+  string dateTime = 1;  // Дата и время в формате "02.02.2023 4:00"
+  string now = 2;
+  double temperature = 3;  // Температура в градусах Цельсия
+}
